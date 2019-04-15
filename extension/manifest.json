@@ -1,0 +1,38 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "name": "Emailnotifier",
+  "version": "0.0.2",
+  "manifest_version": 2,
+  "description": "email notifier",
+  "homepage_url": "http://thecout.com",
+"content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
+  "icons": {
+  },
+ "background":
+    {
+        "scripts": ["js/jquery/jquery.js"]
+    },
+  "default_locale": "en",
+  "permissions": [
+    "contentSettings",
+    "notifications",
+    "alarms",
+    "storage",
+    "idle",
+    "https://*/*",
+    "http://mail.google.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://mail.google.com/*"
+      ],
+      "js": [
+	"js/jquery/jquery.js",
+        "src/inject/inject.js"
+      ],
+"run_at": "document_end"
+    }
+  ]
+}

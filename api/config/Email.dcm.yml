@@ -1,0 +1,22 @@
+Email:
+  type: entity
+  table: email
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    hash:
+      type: string
+      length: 512
+    link:
+      type: string
+      length: 50
+    isRead:
+      type: integer
+    timestamp:
+      type: integer
+    useragent:
+      type: string
+      length: 512
